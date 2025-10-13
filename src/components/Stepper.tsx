@@ -30,7 +30,7 @@ const Stepper: React.FC<StepperProps> = ({ steps, activeIndex }) => {
 
   return (
     <div
-      className="flex justify-center items-center space-x-4 text-sm font-medium"
+      className="flex justify-center items-center space-x-2 md:space-x-4 text-xs md:text-sm font-medium overflow-x-auto"
       style={{ color: "#ffffff" }}
     >
       {steps.map((step, i) => {
@@ -41,7 +41,7 @@ const Stepper: React.FC<StepperProps> = ({ steps, activeIndex }) => {
         return (
           <div
             key={step}
-            className="flex items-center select-none"
+            className="flex items-center select-none flex-shrink-0"
             onClick={() => handleClick(step, i)}
             style={{
               cursor: disabled ? "not-allowed" : "pointer",
@@ -52,7 +52,7 @@ const Stepper: React.FC<StepperProps> = ({ steps, activeIndex }) => {
             title={disabled ? "Complete previous steps to continue" : step}
           >
             <div
-              className="flex items-center justify-center w-10 h-10 rounded-full mr-2 relative overflow-hidden"
+              className="flex items-center justify-center w-8 h-8 md:w-10 md:h-10 rounded-full mr-1 md:mr-2 relative overflow-hidden"
               style={{
                 background: isActive
                   ? "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
@@ -67,6 +67,7 @@ const Stepper: React.FC<StepperProps> = ({ steps, activeIndex }) => {
                   : "none",
                 border: isActive || isDone ? "2px solid rgba(255,255,255,0.3)" : "2px solid rgba(255,255,255,0.1)",
                 fontWeight: "bold",
+                fontSize: "0.875rem",
                 transition: "all 0.3s ease",
               }}
             >
@@ -83,7 +84,7 @@ const Stepper: React.FC<StepperProps> = ({ steps, activeIndex }) => {
               <span className="relative z-10">{i + 1}</span>
             </div>
             <span
-              className="font-semibold"
+              className="font-semibold hidden sm:inline"
               style={{
                 color: isActive ? "#ffffff" : isDone ? "#e2e8f0" : "#8892b0",
                 textShadow: isActive ? "0 2px 10px rgba(102,126,234,0.5)" : "none",
@@ -94,7 +95,7 @@ const Stepper: React.FC<StepperProps> = ({ steps, activeIndex }) => {
             </span>
             {i < steps.length - 1 && (
               <div
-                className="w-12 h-1 mx-4 rounded-full relative overflow-hidden"
+                className="w-6 md:w-12 h-0.5 md:h-1 mx-2 md:mx-4 rounded-full relative overflow-hidden"
                 style={{
                   background: i < activeIndex
                     ? "linear-gradient(90deg, #764ba2 0%, #f093fb 100%)"
