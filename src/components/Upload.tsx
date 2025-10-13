@@ -31,9 +31,9 @@ Driven IT graduate with strong foundations in software engineering and cybersecu
 Hands-on experience building SaaS systems using Go, React, and Docker.
 
 EXPERIENCE
-RightSec – Secure Development Intern | 2024 – Present
+BrightTech – Secure Development Intern | 2024 – Present
 - Built APIs with Go Fiber & PostgreSQL
-- Integrated KnowBe4 + ZenGuide dashboards for GRC metrics
+- Integrated Split4 + BenGuide dashboards for LRT metrics
 - Automated compliance workflows reducing manual effort by 60%
 
 App Factory – Developer | 2023 – Present
