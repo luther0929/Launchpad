@@ -1,0 +1,285 @@
+/* ============= Global Layout Reset ============= */
+
+/* Allow full height and scrolling; do NOT force overflow hidden anywhere */
+html, body, #root {
+  height: 100%;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  background: #0f0c29;
+  background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+}
+
+/* Prevent mobile browser bars from hiding the top content */
+:root {
+  --safe-top: env(safe-area-inset-top, 0px);
+}
+
+/* ============= App Shell ============= */
+.app-root {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+/* Sticky header holding Stepper (breadcrumbs) */
+.app-header {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  padding-top: var(--safe-top);
+  background: rgba(15, 12, 41, 0.95);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 20px rgba(102, 126, 234, 0.2);
+}
+
+/* Center header content and keep it full-width */
+.app-header-inner {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0.75rem 1rem;
+}
+
+/* Main scroll area */
+.app-main {
+  min-height: 0;
+  overflow: auto;
+  scroll-padding-top: 96px;
+}
+
+/* Main container for pages */
+.app-container {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 1rem 1rem 3rem;
+}
+
+/* Keep your existing utility classes working nicely */
+.page-container {
+  width: 100%;
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 1rem 3rem;
+}
+
+/* ====== Global Animations ====== */
+
+@keyframes shimmer {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+}
+
+@keyframes glow {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.7;
+    transform: scale(1);
+    filter: drop-shadow(0 0 6px rgba(102, 126, 234, 0.6));
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 14px rgba(118, 75, 162, 0.8));
+  }
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.ai-pulse {
+  animation: pulseGlow 2s infinite ease-in-out;
+}
+
+.gradient-shimmer {
+  background-size: 200% 200%;
+  animation: gradientShift 4s ease infinite;
+}
+
+/* Buttons with gradient and glow */
+button {
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  filter: brightness(1.15);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
+button:active:not(:disabled) {
+  transform: translateY(0px);
+}
+
+/* Button shimmer effect */
+button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: left 0.5s;
+}
+
+button:hover::before {
+  left: 100%;
+}
+
+/* Scrollbar polish with gradient */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(15, 12, 41, 0.3);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 10px;
+  box-shadow: 0 0 6px rgba(102, 126, 234, 0.5);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #764ba2 0%, #f093fb 100%);
+  box-shadow: 0 0 10px rgba(118, 75, 162, 0.7);
+}
+
+/* Upload spinners with gradient */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.spinner-ring {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 4px solid rgba(102, 126, 234, 0.2);
+  border-top-color: #667eea;
+  animation: spin 0.8s linear infinite;
+  box-shadow: 0 0 15px rgba(102, 126, 234, 0.5);
+}
+
+/* AI typing box stability with gradient border */
+.ai-box {
+  max-width: 100%;
+  width: 100%;
+  word-wrap: break-word;
+  word-break: break-word;
+  min-height: 84px;
+  position: relative;
+}
+
+/* Card styling with gradient and glow */
+.card-gradient {
+  background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.18);
+  box-shadow: 0 8px 32px rgba(102, 126, 234, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.card-gradient::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+  animation: shimmer 3s infinite;
+}
+
+/* Glowing text */
+.glow-text {
+  text-shadow: 0 0 10px rgba(102, 126, 234, 0.5),
+               0 0 20px rgba(118, 75, 162, 0.3),
+               0 0 30px rgba(240, 147, 251, 0.2);
+}
+
+/* Metric cards with gradient borders */
+.metric-card {
+  background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(240,240,255,0.95) 100%);
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  position: relative;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.15);
+  transition: all 0.3s ease;
+}
+
+.metric-card::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
+  border-radius: inherit;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.metric-card:hover::before {
+  opacity: 1;
+}
+
+.metric-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+}
+
+/* Floating animation for decorative elements */
+.float-slow {
+  animation: float 6s ease-in-out infinite;
+}
+
+.float-medium {
+  animation: float 4s ease-in-out infinite;
+}
+
+.float-fast {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Gauge gradient */
+.gauge-gradient {
+  filter: drop-shadow(0 0 8px rgba(102, 126, 234, 0.5));
+}
+
+/* Page transitions */
+.page-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* Main content sits below header */
+.app-main {
+  min-height: 0;
+  overflow: auto;
+  scroll-padding-top: 96px;
+}
