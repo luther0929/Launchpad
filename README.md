@@ -37,8 +37,8 @@ The goal is to validate the **technical feasibility and user flow**, not yet ful
 
 ### 1. Clone the repo
 ```bash
-git clone https://github.com/yourusername/launchpad-ats-optimizer.git
-cd launchpad-ats-optimizer
+git clone [[https://github.com/yourusername/launchpad-ats-optimizer.git]()](https://github.com/luther0929/Launchpad.git)
+cd launchpad
 npm install
 npm run dev
 ```
