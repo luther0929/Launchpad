@@ -3,7 +3,7 @@
 A small proof-of-concept **SaaS resume builder** designed to help jobseekers **optimize their resumes for ATS (Applicant Tracking System) scoring**.  
 Built with **React + TypeScript + Vite**, this experiment explores automated keyword analysis, AI-driven suggestions, and real-time optimization insights.
 
-🔗 **Live Demo:** [launchpad-prototype.netlify.app](https://launchpad-prototype.netlify.app)
+**Live Demo:** [launchpad-prototype.netlify.app](https://launchpad-prototype.netlify.app)
 
 ---
 
@@ -41,4 +41,6 @@ cd launchpad
 npm install
 npm run dev
 ```
+<img width="1398" height="1251" alt="image" src="https://github.com/user-attachments/assets/2f03274a-7e4a-477c-b22b-f92ac90bf03e" />
+<img width="873" height="1150" alt="image" src="https://github.com/user-attachments/assets/231bdf3f-74c8-425d-b5e5-26b87ee834b8" />
 
